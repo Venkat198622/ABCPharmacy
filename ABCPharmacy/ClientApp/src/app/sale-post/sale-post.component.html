@@ -1,0 +1,12 @@
+<ng-container *ngIf="(salePost$ | async) as salePost; else loading">
+
+  <h1>{{ salePost.medicineName }}</h1>
+  <div>{{ salePost.brand }}</div>
+  <div>{{ salePost.price }}</div>
+  <div>{{ salePost.quantity }}</div>
+  <div>{{ salePost.expiryDate }}</div>
+  <div>{{ salePost.notes }}</div>
+  
+
+</ng-container>
+<ng-template #loading>Loading…</ng-template>

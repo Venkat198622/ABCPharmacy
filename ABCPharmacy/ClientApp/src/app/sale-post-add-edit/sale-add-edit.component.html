@@ -1,0 +1,61 @@
+<h1>{{actionType}} Sales </h1>
+<form [formGroup]="form" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Medicine Name</label>
+    <div class="col-md-12">
+      <input class="form-control" type="text" formControlName="medicineName">
+    </div>
+    <span class="text-danger ml-3" *ngIf="medicineName.invalid && formDir.submitted">
+      Medicine Name is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Brand</label>
+    <div class="col-md-12">
+      <input class="form-control" type="text" formControlName="brand">
+    </div>
+    <span class="text-danger ml-3" *ngIf="brand.invalid && formDir.submitted">
+      Brand is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Price</label>
+    <div class="col-md-12">
+      <input class="form-control" type="text" formControlName="price">
+    </div>
+    <span class="text-danger ml-3" *ngIf="price.invalid && formDir.submitted">
+      Price is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Quantity</label>
+    <div class="col-md-12">
+      <input class="form-control" type="text" formControlName="quantity">
+    </div>
+    <span class="text-danger ml-3" *ngIf="quantity.invalid && formDir.submitted">
+      Quantity is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class=" control-label col-md-12">Expiry Date</label>
+    <div class="col-md-12">
+      <input class="form-control" type="text" formControlName="expiryDate">
+    </div>
+    <span class="text-danger ml-3" *ngIf="expiryDate.invalid && formDir.submitted">
+      Expiry Date is required.
+    </span>
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12" for="Notes">Notes</label>
+    <div class="col-md-12">
+      <textarea class="form-control" rows="5" formControlName="notes"></textarea>
+    </div>
+    <span class="text-danger ml-3" *ngIf="notes.invalid && formDir.submitted">
+      Notes is required.
+    </span>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success float-right">Save</button>
+    <button class="btn btn-secondary float-left" (click)="cancel()">Cancel</button>
+  </div>
+</form>

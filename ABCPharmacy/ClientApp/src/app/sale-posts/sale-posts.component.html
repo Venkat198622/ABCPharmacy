@@ -1,0 +1,32 @@
+<h1>Sales Details</h1>
+
+<p *ngIf="!(salePost$ | async)"><em>Loading...</em></p>
+<p>
+  <a [routerLink]="['/add']" class="btn btn-primary float-right mb-3">New post</a>
+</p>
+
+<table class="table table-sm table-hover" *ngIf="(salePost$ | async)?.length>0">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Medicine Name</th>
+      <th>Brand</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Expiry Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sale of (salePost$ | async)">
+      <td>{{ sale.id }}</td>
+      <td><a [routerLink]="['/sale/', sale.id]">{{ sale.medicineName }}</a></td>
+      <td>{{ sale.brand }}</td>
+      <td>{{ sale.price }}</td>
+      <td>{{ sale.quantity }}</td>
+      <td>{{ sale.expiryDate | date: "dd.MM.yyyy" }}</td>
+      <td><a [routerLink]="['/sale/edit/', sale.id]" class="btn btn-primary btn-sm float-right">Edit</a>
+      </td>
+      <td><a [routerLink]="" (click)="delete(sale.id)" class="btn btn-danger btn-sm float-right">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
